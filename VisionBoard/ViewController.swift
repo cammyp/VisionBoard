@@ -5,31 +5,40 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    // IBOutlet
-    @IBOutlet var picBtn: UIButton!
-    @IBOutlet var picBtns: [UIButton]!
-    @IBOutlet var addBtn: UIButton!
+    
+    
+    // MARK: Outlets, Variables and Actions
+    
+    
+    // Outlets and Variables
+    @IBOutlet weak var addBtn: UIButton!
+    var currBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // must declare vars in viewDidLoad
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onClickImageView))
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(actionPinchGesture))
-        picBtn.addGestureRecognizer(panGesture)
-        picBtn.addGestureRecognizer(pinchGesture)
     }
     
+    // add btn functionality
     @IBAction func addMoreButtons(_ sender: UIButton) {
-        let newBtn = UIButton(frame: CGRect(x: 75, y: 300, width: 200, height: 200))
+        let newBtn = UIButton(frame: CGRect(x: self.view.bounds.width / 2, y: 300, width: 150, height: 150))
         newBtn.setImage(UIImage(named: "placeholder"), for: .normal)
-        picBtns.append(newBtn)
+        newBtn.addTarget(self, action: #selector(changeButtonImage), for: .touchUpInside)
         self.view.addSubview(newBtn)
     }
     
+    
+    
     // MARK: UIImagePickerContoller Functions
     
-    // change button image
-    @IBAction func changeButtonImage(_ sender: UIButton) {
+    
+    // instantiate a pickerviewcontroller
+    @objc func changeButtonImage(_ sender: UIButton) {
+        // set curr
+        currBtn = sender
+        
+        // add UIGesture handles to curr
+        setUIGestureHandles()
+                
         // set a pickerController, a delegate and a sourceType
         let image = UIImagePickerController()
         image.delegate = self
@@ -39,16 +48,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.present(image, animated: true)
     }
     
-    // set the image picked from the picker view
+    // set the image from the pickerviewcontroller
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            picBtn.setImage(image, for: .normal)
+            currBtn.setImage(image, for: .normal)
         }
         // dismiss picker view
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    
     // MARK: UIGestureRecognizer Functions
+    
+    
+    // add UIGesture handles to curr
+    func setUIGestureHandles() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onClickImageView))
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(actionPinchGesture))
+        currBtn.addGestureRecognizer(panGesture)
+        currBtn.addGestureRecognizer(pinchGesture)
+    }
     
     // pan button
     @objc func onClickImageView(recogizer: UIPanGestureRecognizer) {
