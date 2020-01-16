@@ -20,9 +20,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Button" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addMoreButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTg-SF-wJM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5e-pz-0GV">
-                                <rect key="frame" x="114" y="146" width="186" height="206"/>
+                                <rect key="frame" x="107" y="95" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="rings"/>
                                 <connections>
@@ -34,7 +37,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="btn" destination="s5e-pz-0GV" id="HlM-vh-Z2d"/>
+                        <outlet property="addBtn" destination="Bui-Qd-WwK" id="1MP-WW-Gj5"/>
+                        <outlet property="picBtn" destination="s5e-pz-0GV" id="HlM-vh-Z2d"/>
+                        <outletCollection property="picBtns" destination="s5e-pz-0GV" collectionClass="NSMutableArray" id="cKj-q3-tK3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

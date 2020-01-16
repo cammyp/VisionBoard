@@ -3,7 +3,14 @@
 
 /*
  
- AddButton - creates a new button to be moved
- PictureButtons - can move and be resized and if tapped change the image
+ picBtn
+ tap to set image
+ drag to move
+ pinch to zoom
+ 
+ addBtn
+ tap to add new btn
+ 
+ need to store all buttons with properties yeah?
  
  */
