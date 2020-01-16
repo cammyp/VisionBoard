@@ -3,8 +3,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    // IBOutlet
     @IBOutlet var btn: UIButton!
     
     override func viewDidLoad() {
@@ -16,7 +17,29 @@ class ViewController: UIViewController {
         btn.addGestureRecognizer(pinchGesture)
     }
     
-    // MARK: PAN AND PINCH UIGESTURERECOGNIZERS
+    // MARK: UIImagePickerContoller Functions
+    
+    // change button image
+    @IBAction func changeButtonImage(_ sender: UIButton) {
+        // set a pickerController, a delegate and a sourceType
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+        image.allowsEditing = false
+        // present the picker view
+        self.present(image, animated: true)
+    }
+    
+    // set the image picked from the picker view
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            btn.setImage(image, for: .normal)
+        }
+        // dismiss picker view
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: UIGestureRecognizer Functions
     
     // pan button
     @objc func onClickImageView(recogizer: UIPanGestureRecognizer) {
@@ -27,7 +50,7 @@ class ViewController: UIViewController {
         recogizer.setTranslation(CGPoint.zero, in: self.view)
     }
        
-       // zoom button image
+    // pinch button
     @objc func actionPinchGesture(recognizer: UIPinchGestureRecognizer) {
         if let view = recognizer.view {
             view.transform = view.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)

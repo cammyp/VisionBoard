@@ -1,3 +1,3 @@
 # VisionBoard
 
-🧙🏾‍♂️Collage creation application that allows you to make mobile vision boards
+🧙🏾‍♂️Collage Creation Application using Apple's UIGestureRecognizers and UIImagePickerContoller
