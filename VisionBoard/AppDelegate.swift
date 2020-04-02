@@ -1,6 +1,3 @@
-//  Created by Cameron  Partee on 1/16/20.
-//  Copyright © 2020 Cameron Partee. All rights reserved.
-
 import UIKit
 
 @UIApplicationMain
@@ -25,7 +22,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
 }
-
