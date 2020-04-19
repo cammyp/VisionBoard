@@ -9,6 +9,8 @@
 - Image/Text resizing
 - Move and Delete functionality 
 
+
+
 ![img](https://i.imgur.com/zIJyn8al.jpg)
 ![img](https://i.imgur.com/6qWAIy9l.jpg)
 ![img](https://media.giphy.com/media/cnQnREDgik6xPB8Y85/giphy.gif)
