@@ -15,10 +15,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     // addtext
     @IBAction func AddTextButton(_ sender: UIButton) {
-        let newBtn = UIButton(frame: CGRect(x: 110, y: 200, width: 200, height: 40))
+        let newBtn = UIButton(frame: CGRect(x: 90, y: 210, width: 270, height: 50))
         newBtn.setTitle("Enter text here", for: .normal)
         newBtn.setTitleColor(UIColor.black, for: .normal)
-        newBtn.titleLabel?.font = .systemFont(ofSize: 30)
+        newBtn.titleLabel?.font = .boldSystemFont(ofSize: 35)
         newBtn.addTarget(self, action: #selector(changeCurrButton), for: .touchUpInside)
         self.view.addSubview(newBtn)
     }
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Step: 3
         alert.addTextField { (textField) in
             textField.placeholder = "Type new text here"
-            textField.textColor = .purple
+            textField.textColor = .black
         }
 
         // Step: 4
