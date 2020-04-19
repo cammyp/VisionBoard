@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,31 +10,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VisionBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Vision_Board" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-Qd-WwK">
-                                <rect key="frame" x="334" y="44" width="21" height="26"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addimage" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-eM-isC">
+                                <rect key="frame" x="314" y="76" width="68" height="37"/>
+                            </imageView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bui-Qd-WwK" userLabel="addimageBtn">
+                                <rect key="frame" x="314" y="70" width="68" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="i9y-Ps-Llj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
-                                    <action selector="addMoreButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTg-SF-wJM"/>
+                                    <action selector="addImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTg-SF-wJM"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addtext" translatesAutoresizingMaskIntoConstraints="NO" id="nxs-mw-w3a">
+                                <rect key="frame" x="313" y="135" width="71" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="qxu-0t-kXg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EnE-JX-zKM">
+                                <rect key="frame" x="304" y="128" width="80" height="52"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddTextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="esh-pB-AL8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bui-Qd-WwK" secondAttribute="trailing" constant="59" id="Lnp-Be-4L0"/>
-                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WjD-IM-U0v"/>
-                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="334" id="hem-JF-Mql"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bui-Qd-WwK" secondAttribute="bottom" constant="792" id="wNm-m2-pan"/>
+                            <constraint firstItem="nxs-mw-w3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="313" id="3NP-jN-GNT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EnE-JX-zKM" secondAttribute="trailing" constant="30" id="9e6-Tx-aUB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EnE-JX-zKM" secondAttribute="bottom" constant="682" id="DMC-W6-ML4"/>
+                            <constraint firstItem="EnE-JX-zKM" firstAttribute="trailing" secondItem="nxs-mw-w3a" secondAttribute="trailing" id="KwL-EW-Akj"/>
+                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="leading" secondItem="K1C-eM-isC" secondAttribute="leading" id="MZu-AR-crK"/>
+                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="trailing" secondItem="K1C-eM-isC" secondAttribute="trailing" id="WNk-WK-EXz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bui-Qd-WwK" secondAttribute="trailing" constant="32" id="eQe-PI-pG0"/>
+                            <constraint firstItem="EnE-JX-zKM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="304" id="f6B-nK-3rB"/>
+                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="ke6-gs-yKQ"/>
+                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="314" id="nCA-T8-AF4"/>
+                            <constraint firstItem="EnE-JX-zKM" firstAttribute="centerY" secondItem="nxs-mw-w3a" secondAttribute="centerY" id="npl-YM-Noh"/>
+                            <constraint firstItem="EnE-JX-zKM" firstAttribute="top" secondItem="K1C-eM-isC" secondAttribute="bottom" constant="15" id="ot5-sj-lRz"/>
+                            <constraint firstItem="Bui-Qd-WwK" firstAttribute="centerY" secondItem="K1C-eM-isC" secondAttribute="centerY" id="rWc-kS-ESk"/>
+                            <constraint firstItem="K1C-eM-isC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="xpU-nt-48V"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="addBtn" destination="Bui-Qd-WwK" id="1MP-WW-Gj5"/>
+                        <outlet property="addTextBtn" destination="EnE-JX-zKM" id="k0e-Dv-p3f"/>
+                        <outlet property="addimageBtn" destination="Bui-Qd-WwK" id="1MP-WW-Gj5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -43,6 +74,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="addimage" width="45" height="31"/>
+        <image name="addtext" width="35" height="33"/>
     </resources>
 </document>

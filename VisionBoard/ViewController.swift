@@ -2,36 +2,88 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var addimageBtn: UIButton!
+    @IBOutlet weak var addTextBtn: UIButton!
     
     var currBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layer.borderWidth = 1.5
+        self.view.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    // addtext
+    @IBAction func AddTextButton(_ sender: UIButton) {
+        let newBtn = UIButton(frame: CGRect(x: 110, y: 200, width: 200, height: 40))
+        newBtn.setTitle("Enter text here", for: .normal)
+        newBtn.setTitleColor(UIColor.black, for: .normal)
+        newBtn.titleLabel?.font = .systemFont(ofSize: 30)
+        newBtn.addTarget(self, action: #selector(changeCurrButton), for: .touchUpInside)
+        self.view.addSubview(newBtn)
     }
     
     // addbtn
-    @IBAction func addMoreButtons(_ sender: UIButton) {
-        let newBtn = UIButton(frame: CGRect(x: 135, y: 200, width: 150, height: 150))
+    @IBAction func addImageButton(_ sender: UIButton) {
+        let newBtn = UIButton(frame: CGRect(x: 110, y: 200, width: 200, height: 200))
+        newBtn.layer.borderWidth = 2
+        newBtn.layer.borderColor = UIColor.black.cgColor
         newBtn.setImage(UIImage(named: "placeholder"), for: .normal)
-        newBtn.addTarget(self, action: #selector(changeButtonImage), for: .touchUpInside)
+        newBtn.addTarget(self, action: #selector(changeCurrButton), for: .touchUpInside)
+        if(sender.tag == 1) {
+            newBtn.tag = 1
+        }
         self.view.addSubview(newBtn)
     }
     
     // instantiate a pickerviewcontroller
-    @objc func changeButtonImage(_ sender: UIButton) {
+    @objc func changeCurrButton(_ sender: UIButton) {
         // set curr
         currBtn = sender
         // add UIGesture handles to curr
         setUIGestureHandles()
         
-        // set a pickerController, a delegate and a sourceType
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        // present the picker view
-        self.present(image, animated: true)
+        if(sender.tag == 1) {
+            // set a pickerController, a delegate and a sourceType
+            let image = UIImagePickerController()
+            image.delegate = self
+            image.sourceType = UIImagePickerController.SourceType.photoLibrary
+            image.allowsEditing = false
+            // present the picker view
+            self.present(image, animated: true)
+        } else {
+            print("text has been pressed")
+            alertWithTF()
+        }
+    }
+    
+    func alertWithTF() {
+        
+        // Step: 1
+        let alert = UIAlertController(title: "Rename text", message: "", preferredStyle: UIAlertController.Style.alert )
+        
+        // Step: 2
+        let save = UIAlertAction(title: "Save", style: .default) { (alertAction) in
+            let textField = alert.textFields![0] as UITextField
+            if textField.text != "" {
+                print(textField.text!)
+                self.currBtn.setTitle(textField.text!, for: .normal)
+            } else {
+                print("TF 1 is Empty...")
+            }
+        }
+
+        // Step: 3
+        alert.addTextField { (textField) in
+            textField.placeholder = "Type new text here"
+            textField.textColor = .purple
+        }
+
+        // Step: 4
+        alert.addAction(save)
+        let cancel = UIAlertAction(title: "Cancel", style: .default) { (alertAction) in }
+        alert.addAction(cancel)
+        self.present(alert, animated:true, completion: nil)
     }
     
     // add UIGesture handles to curr
