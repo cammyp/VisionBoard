@@ -2,10 +2,11 @@
 
 🧙🏾‍♂️Collage Creation Application using Apple's UIGestureRecognizers and UIImagePickerContoller
 
-![img](https://i.imgur.com/zIJyn8am.jpg)
-![img](https://i.imgur.com/JBOBMNSl.jpg)
-![img](https://i.imgur.com/1cxenoWl.jpg)
-![img](https://i.imgur.com/pEnSaOSl.jpg)
+![img](https://i.imgur.com/zIJyn8al.jpg)
+![img](https://i.imgur.com/6qWAIy9l.jpg)
+
+![img](https://i.imgur.com/GLdW4QWl.jpg)
+![img](https://i.imgur.com/kUAZPt0l.jpg)
 
 
 # Features
